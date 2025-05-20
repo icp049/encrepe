@@ -1,17 +1,17 @@
-//
-//  encrepeApp.swift
-//  encrepe
-//
-//  Created by Ian Pedeglorio on 2025-04-16.
-//
+
 
 import SwiftUI
 
 @main
 struct encrepeApp: App {
+    
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
+

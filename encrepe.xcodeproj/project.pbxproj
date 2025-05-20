@@ -8,17 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		A69B3FB62DB0B4C300D8C843 /* encrepeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */; };
-		A69B3FB82DB0B4C300D8C843 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FB72DB0B4C300D8C843 /* ContentView.swift */; };
 		A69B3FBA2DB0B4C400D8C843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */; };
 		A69B3FBD2DB0B4C400D8C843 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */; };
+		A69B3FC62DB0B50700D8C843 /* AccountModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FC42DB0B50700D8C843 /* AccountModel.xcdatamodeld */; };
+		A69B3FC82DB0B54500D8C843 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FC72DB0B54500D8C843 /* DataController.swift */; };
+		A69B3FCB2DB0B56500D8C843 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */; };
+		A69B3FCD2DB0B57C00D8C843 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCC2DB0B57C00D8C843 /* ContentView.swift */; };
+		A69B3FCF2DB0B59100D8C843 /* EditAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCE2DB0B59100D8C843 /* EditAccountView.swift */; };
+		A69B3FD12DB0B5A500D8C843 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FD02DB0B5A500D8C843 /* AccountView.swift */; };
+		A69B3FD42DB0B5C000D8C843 /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FD32DB0B5C000D8C843 /* TimeFormatting.swift */; };
+		A69B3FD62DB0B5DA00D8C843 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FD52DB0B5DA00D8C843 /* AccountViewController.swift */; };
+		A69B3FD92DB0B5FA00D8C843 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FD82DB0B5FA00D8C843 /* BackButton.swift */; };
+		A69B3FDB2DB0B61900D8C843 /* RUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FDA2DB0B61900D8C843 /* RUButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A69B3FB22DB0B4C300D8C843 /* encrepe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encrepe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encrepeApp.swift; sourceTree = "<group>"; };
-		A69B3FB72DB0B4C300D8C843 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A69B3FC52DB0B50700D8C843 /* AccountModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AccountModel.xcdatamodel; sourceTree = "<group>"; };
+		A69B3FC72DB0B54500D8C843 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		A69B3FCC2DB0B57C00D8C843 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A69B3FCE2DB0B59100D8C843 /* EditAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountView.swift; sourceTree = "<group>"; };
+		A69B3FD02DB0B5A500D8C843 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		A69B3FD32DB0B5C000D8C843 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
+		A69B3FD52DB0B5DA00D8C843 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		A69B3FD82DB0B5FA00D8C843 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		A69B3FDA2DB0B61900D8C843 /* RUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +69,11 @@
 		A69B3FB42DB0B4C300D8C843 /* encrepe */ = {
 			isa = PBXGroup;
 			children = (
+				A69B3FD72DB0B5E900D8C843 /* Components */,
+				A69B3FD22DB0B5B000D8C843 /* Helpers */,
+				A69B3FC92DB0B55700D8C843 /* Views */,
+				A69B3FC32DB0B4F000D8C843 /* DataController */,
 				A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */,
-				A69B3FB72DB0B4C300D8C843 /* ContentView.swift */,
 				A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */,
 				A69B3FBB2DB0B4C400D8C843 /* Preview Content */,
 			);
@@ -65,6 +86,44 @@
 				A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A69B3FC32DB0B4F000D8C843 /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				A69B3FC42DB0B50700D8C843 /* AccountModel.xcdatamodeld */,
+				A69B3FC72DB0B54500D8C843 /* DataController.swift */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
+		A69B3FC92DB0B55700D8C843 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */,
+				A69B3FCC2DB0B57C00D8C843 /* ContentView.swift */,
+				A69B3FCE2DB0B59100D8C843 /* EditAccountView.swift */,
+				A69B3FD02DB0B5A500D8C843 /* AccountView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A69B3FD22DB0B5B000D8C843 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A69B3FD32DB0B5C000D8C843 /* TimeFormatting.swift */,
+				A69B3FD52DB0B5DA00D8C843 /* AccountViewController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A69B3FD72DB0B5E900D8C843 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A69B3FD82DB0B5FA00D8C843 /* BackButton.swift */,
+				A69B3FDA2DB0B61900D8C843 /* RUButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A69B3FB82DB0B4C300D8C843 /* ContentView.swift in Sources */,
+				A69B3FC62DB0B50700D8C843 /* AccountModel.xcdatamodeld in Sources */,
+				A69B3FC82DB0B54500D8C843 /* DataController.swift in Sources */,
+				A69B3FD92DB0B5FA00D8C843 /* BackButton.swift in Sources */,
+				A69B3FCD2DB0B57C00D8C843 /* ContentView.swift in Sources */,
+				A69B3FDB2DB0B61900D8C843 /* RUButton.swift in Sources */,
+				A69B3FCB2DB0B56500D8C843 /* AddAccountView.swift in Sources */,
+				A69B3FD12DB0B5A500D8C843 /* AccountView.swift in Sources */,
+				A69B3FD62DB0B5DA00D8C843 /* AccountViewController.swift in Sources */,
+				A69B3FCF2DB0B59100D8C843 /* EditAccountView.swift in Sources */,
 				A69B3FB62DB0B4C300D8C843 /* encrepeApp.swift in Sources */,
+				A69B3FD42DB0B5C000D8C843 /* TimeFormatting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +412,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A69B3FC42DB0B50700D8C843 /* AccountModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A69B3FC52DB0B50700D8C843 /* AccountModel.xcdatamodel */,
+			);
+			currentVersion = A69B3FC52DB0B50700D8C843 /* AccountModel.xcdatamodel */;
+			name = AccountModel.xcdatamodeld;
+			path = /Users/ianpedeglorio/encrepe/encrepe/DataController/AccountModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A69B3FAA2DB0B4C300D8C843 /* Project object */;
 }
