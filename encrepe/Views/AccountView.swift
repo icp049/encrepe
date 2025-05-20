@@ -6,81 +6,62 @@ struct AccountView: View {
     @State private var revealCredentials = false
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
-    
-    
-    @State private var unlocked = false
-    @State private var text = "LOCKED"
-    
-    
-    
 
     let account: Account
 
     var body: some View {
-        VStack{
-            VStack {
-                VStack {
-                    HStack {
-                        Image("yellowcard")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
-
-                        Text(revealCredentials ? "\(account.username ?? "Not Available")" : getCensoredText())
-                            .italic()
-                            .animation(.easeInOut(duration: 0.5))
-                            .foregroundColor(.gray).opacity(0.6)
-                            
-                    }
+        VStack {
+            VStack(spacing: 20) {
+                HStack {
+                    Image("yellowcard")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                    Text(revealCredentials ? "\(account.username ?? "Not Available")" : getCensoredText())
+                        .italic()
+                        .animation(.easeInOut(duration: 0.3), value: revealCredentials)
+                        .foregroundColor(.gray).opacity(0.6)
                 }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .center)
 
-                VStack {
-                    HStack {
-                        Image("yellowkey")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
-                        Text(revealCredentials ? "\(account.password ?? "Not Available")" : getCensoredText())
-                            .italic()
-                            .animation(.easeInOut(duration: 0.5))
-                            .foregroundColor(.gray).opacity(0.6)
-                    }
+                HStack {
+                    Image("yellowkey")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                    Text(revealCredentials ? "\(account.password ?? "Not Available")" : getCensoredText())
+                        .italic()
+                        .animation(.easeInOut(duration: 0.3), value: revealCredentials)
+                        .foregroundColor(.gray).opacity(0.6)
                 }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .center)
 
-                VStack {
+                if !revealCredentials {
                     Button("Decrypt") {
-                        authenticateWithFaceID { success in
+                        authenticateWithSystem { success in
                             if success {
                                 withAnimation {
-                                    revealCredentials.toggle()
+                                    revealCredentials = true
                                 }
                             }
                         }
                     }
                     .padding()
                     .bold()
-                    .background(colorScheme == .dark ? .white : .black)
+                    .background(colorScheme == .dark ? Color.white : Color.black)
+                    .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                     .cornerRadius(8)
-                    .padding(.bottom, 20)
-                    .opacity(revealCredentials ? 0 : 1)
-                    .foregroundColor(colorScheme == .dark ? .black : .white)
-                    .frame(maxWidth: .infinity, alignment: .center)
                 }
-               
-                .padding(.top,25)
             }
+            .padding(.top, 30)
         }
         .navigationBarTitle(account.name ?? "", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: BackButton { presentationMode.wrappedValue.dismiss() })
+        .navigationBarItems(leading: BackButton {
+            presentationMode.wrappedValue.dismiss()
+        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Edit") {
-                    authenticateWithFaceID { success in
+                    authenticateWithSystem { success in
                         if success {
                             showingEditView.toggle()
                         }
@@ -93,53 +74,31 @@ struct AccountView: View {
         }
     }
 
-    func authenticateWithFaceID(completion: @escaping (Bool) -> Void) {
-        authenticate { success in
-            if success {
-                completion(true)
-            } else {
-                // Handle authentication failure, if needed
-                completion(false)
-            }
-        }
-    }
-
-    func authenticate(completion: @escaping (Bool) -> Void) {
+    // ✅ The ideal authentication policy
+    func authenticateWithSystem(completion: @escaping (Bool) -> Void) {
         let context = LAContext()
         var error: NSError?
-        
+
         context.localizedFallbackTitle = "Use Passcode"
 
-        if context.canEvaluatePolicy(.deviceOwnerAuthentication,
-                                     error: &error) {
+        // This will try biometrics first, then passcode
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             context.evaluatePolicy(.deviceOwnerAuthentication,
-                                   localizedReason: "AUthenticate to reveal credentials") { success, authenticationError in
-
+                                   localizedReason: "Authenticate to reveal credentials") { success, _ in
                 DispatchQueue.main.async {
-                               if success {
-                                   text = "UNLOCKED"
-                                   completion(true)
-                               } else {
-                                   text = "Authentication failed"
-                                   completion(false)
-                               }
-                           }
-                       }
+                    completion(success)
+                }
+            }
         } else {
-            text = "Biometric authentication is not available"
-            completion(false)
+            // Nothing available
+            DispatchQueue.main.async {
+                completion(false)
+            }
         }
     }
 
     func getCensoredText() -> String {
         return "********************"
     }
-
-    
-    
- 
-    
 }
-
-//i need to do something here so that it retries the faceID
 

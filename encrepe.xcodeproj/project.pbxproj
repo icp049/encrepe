@@ -23,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6469D312DDC5B3A00E0CBC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A69B3FB22DB0B4C300D8C843 /* encrepe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encrepe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encrepeApp.swift; sourceTree = "<group>"; };
 		A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		A69B3FB42DB0B4C300D8C843 /* encrepe */ = {
 			isa = PBXGroup;
 			children = (
+				A6469D312DDC5B3A00E0CBC7 /* Info.plist */,
 				A69B3FD72DB0B5E900D8C843 /* Components */,
 				A69B3FD22DB0B5B000D8C843 /* Helpers */,
 				A69B3FC92DB0B55700D8C843 /* Views */,
@@ -343,6 +345,8 @@
 				DEVELOPMENT_TEAM = AB2AUQ6XU8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = encrepe/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID to authenticate and decrypt your stored credentials.\nWe use Face ID to authenticate and decrypt your stored credentials.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -372,6 +376,8 @@
 				DEVELOPMENT_TEAM = AB2AUQ6XU8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = encrepe/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID to authenticate and decrypt your stored credentials.\nWe use Face ID to authenticate and decrypt your stored credentials.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
