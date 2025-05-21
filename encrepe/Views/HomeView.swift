@@ -2,7 +2,7 @@ import SwiftUI
 import CoreData
 import LocalAuthentication
 
-struct ContentView: View {
+struct HomeView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var passphraseManager: PassphraseManager
@@ -112,7 +112,7 @@ struct ContentView: View {
 // Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
             .environment(\.managedObjectContext, DataController().container.viewContext)
             .environmentObject(PassphraseManager())
     }

@@ -10,7 +10,7 @@ struct encrepeApp: App {
             if passphraseManager.showingPrompt {
                 PassphrasePromptView(manager: passphraseManager)
             } else {
-                ContentView()
+                HomeView()
                     .environment(\.managedObjectContext, dataController.container.viewContext)
                     .environmentObject(passphraseManager)
             }

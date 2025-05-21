@@ -11,13 +11,15 @@
 		A6469D372DDC614100E0CBC7 /* PassphraseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D362DDC613900E0CBC7 /* PassphraseManager.swift */; };
 		A6469D392DDC616200E0CBC7 /* PassphrasePromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D382DDC615400E0CBC7 /* PassphrasePromptView.swift */; };
 		A6469D3B2DDC61A200E0CBC7 /* EncryptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3A2DDC619C00E0CBC7 /* EncryptionHelper.swift */; };
+		A6469D3D2DDC6A2A00E0CBC7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3C2DDC6A2600E0CBC7 /* Account.swift */; };
+		A6469D3F2DDC6A4000E0CBC7 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */; };
 		A69B3FB62DB0B4C300D8C843 /* encrepeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */; };
 		A69B3FBA2DB0B4C400D8C843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */; };
 		A69B3FBD2DB0B4C400D8C843 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */; };
 		A69B3FC62DB0B50700D8C843 /* AccountModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FC42DB0B50700D8C843 /* AccountModel.xcdatamodeld */; };
 		A69B3FC82DB0B54500D8C843 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FC72DB0B54500D8C843 /* DataController.swift */; };
 		A69B3FCB2DB0B56500D8C843 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */; };
-		A69B3FCD2DB0B57C00D8C843 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCC2DB0B57C00D8C843 /* ContentView.swift */; };
+		A69B3FCD2DB0B57C00D8C843 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCC2DB0B57C00D8C843 /* HomeView.swift */; };
 		A69B3FCF2DB0B59100D8C843 /* EditAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FCE2DB0B59100D8C843 /* EditAccountView.swift */; };
 		A69B3FD12DB0B5A500D8C843 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FD02DB0B5A500D8C843 /* AccountView.swift */; };
 		A69B3FD42DB0B5C000D8C843 /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FD32DB0B5C000D8C843 /* TimeFormatting.swift */; };
@@ -32,6 +34,8 @@
 		A6469D362DDC613900E0CBC7 /* PassphraseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseManager.swift; sourceTree = "<group>"; };
 		A6469D382DDC615400E0CBC7 /* PassphrasePromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphrasePromptView.swift; sourceTree = "<group>"; };
 		A6469D3A2DDC619C00E0CBC7 /* EncryptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHelper.swift; sourceTree = "<group>"; };
+		A6469D3C2DDC6A2600E0CBC7 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A69B3FB22DB0B4C300D8C843 /* encrepe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encrepe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encrepeApp.swift; sourceTree = "<group>"; };
 		A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +43,7 @@
 		A69B3FC52DB0B50700D8C843 /* AccountModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AccountModel.xcdatamodel; sourceTree = "<group>"; };
 		A69B3FC72DB0B54500D8C843 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
-		A69B3FCC2DB0B57C00D8C843 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A69B3FCC2DB0B57C00D8C843 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A69B3FCE2DB0B59100D8C843 /* EditAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountView.swift; sourceTree = "<group>"; };
 		A69B3FD02DB0B5A500D8C843 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		A69B3FD32DB0B5C000D8C843 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		A69B3FC32DB0B4F000D8C843 /* DataController */ = {
 			isa = PBXGroup;
 			children = (
+				A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */,
+				A6469D3C2DDC6A2600E0CBC7 /* Account.swift */,
 				A69B3FC42DB0B50700D8C843 /* AccountModel.xcdatamodeld */,
 				A69B3FC72DB0B54500D8C843 /* DataController.swift */,
 			);
@@ -112,7 +118,7 @@
 			children = (
 				A6469D382DDC615400E0CBC7 /* PassphrasePromptView.swift */,
 				A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */,
-				A69B3FCC2DB0B57C00D8C843 /* ContentView.swift */,
+				A69B3FCC2DB0B57C00D8C843 /* HomeView.swift */,
 				A69B3FCE2DB0B59100D8C843 /* EditAccountView.swift */,
 				A69B3FD02DB0B5A500D8C843 /* AccountView.swift */,
 			);
@@ -168,7 +174,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					A69B3FB12DB0B4C300D8C843 = {
 						CreatedOnToolsVersion = 15.3;
@@ -213,12 +219,14 @@
 				A69B3FC62DB0B50700D8C843 /* AccountModel.xcdatamodeld in Sources */,
 				A69B3FC82DB0B54500D8C843 /* DataController.swift in Sources */,
 				A69B3FD92DB0B5FA00D8C843 /* BackButton.swift in Sources */,
-				A69B3FCD2DB0B57C00D8C843 /* ContentView.swift in Sources */,
+				A69B3FCD2DB0B57C00D8C843 /* HomeView.swift in Sources */,
 				A6469D392DDC616200E0CBC7 /* PassphrasePromptView.swift in Sources */,
+				A6469D3D2DDC6A2A00E0CBC7 /* Account.swift in Sources */,
 				A6469D3B2DDC61A200E0CBC7 /* EncryptionHelper.swift in Sources */,
 				A6469D352DDC60DA00E0CBC7 /* KeyDerivation.swift in Sources */,
 				A69B3FDB2DB0B61900D8C843 /* RUButton.swift in Sources */,
 				A69B3FCB2DB0B56500D8C843 /* AddAccountView.swift in Sources */,
+				A6469D3F2DDC6A4000E0CBC7 /* Account+CoreDataProperties.swift in Sources */,
 				A69B3FD12DB0B5A500D8C843 /* AccountView.swift in Sources */,
 				A69B3FD62DB0B5DA00D8C843 /* AccountViewController.swift in Sources */,
 				A69B3FCF2DB0B59100D8C843 /* EditAccountView.swift in Sources */,
@@ -266,6 +274,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AB2AUQ6XU8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -329,6 +338,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AB2AUQ6XU8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -358,7 +368,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"encrepe/Preview Content\"";
-				DEVELOPMENT_TEAM = AB2AUQ6XU8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = encrepe/Info.plist;
@@ -389,7 +398,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"encrepe/Preview Content\"";
-				DEVELOPMENT_TEAM = AB2AUQ6XU8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = encrepe/Info.plist;
