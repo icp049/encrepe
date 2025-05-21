@@ -13,6 +13,7 @@
 		A6469D3B2DDC61A200E0CBC7 /* EncryptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3A2DDC619C00E0CBC7 /* EncryptionHelper.swift */; };
 		A6469D3D2DDC6A2A00E0CBC7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3C2DDC6A2600E0CBC7 /* Account.swift */; };
 		A6469D3F2DDC6A4000E0CBC7 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */; };
+		A6469D412DDDA7B900E0CBC7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A6469D402DDDA7AA00E0CBC7 /* README.md */; };
 		A69B3FB62DB0B4C300D8C843 /* encrepeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */; };
 		A69B3FBA2DB0B4C400D8C843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */; };
 		A69B3FBD2DB0B4C400D8C843 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		A6469D3A2DDC619C00E0CBC7 /* EncryptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHelper.swift; sourceTree = "<group>"; };
 		A6469D3C2DDC6A2600E0CBC7 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A6469D402DDDA7AA00E0CBC7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A69B3FB22DB0B4C300D8C843 /* encrepe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encrepe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encrepeApp.swift; sourceTree = "<group>"; };
 		A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		A69B3FB42DB0B4C300D8C843 /* encrepe */ = {
 			isa = PBXGroup;
 			children = (
+				A6469D402DDDA7AA00E0CBC7 /* README.md */,
 				A6469D312DDC5B3A00E0CBC7 /* Info.plist */,
 				A69B3FD72DB0B5E900D8C843 /* Components */,
 				A69B3FD22DB0B5B000D8C843 /* Helpers */,
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6469D412DDDA7B900E0CBC7 /* README.md in Resources */,
 				A69B3FBD2DB0B4C400D8C843 /* Preview Assets.xcassets in Resources */,
 				A69B3FBA2DB0B4C400D8C843 /* Assets.xcassets in Resources */,
 			);
