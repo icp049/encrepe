@@ -70,6 +70,7 @@
 			children = (
 				A69B3FB42DB0B4C300D8C843 /* encrepe */,
 				A69B3FB32DB0B4C300D8C843 /* Products */,
+				A6469D402DDDA7AA00E0CBC7 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,7 +85,6 @@
 		A69B3FB42DB0B4C300D8C843 /* encrepe */ = {
 			isa = PBXGroup;
 			children = (
-				A6469D402DDDA7AA00E0CBC7 /* README.md */,
 				A6469D312DDC5B3A00E0CBC7 /* Info.plist */,
 				A69B3FD72DB0B5E900D8C843 /* Components */,
 				A69B3FD22DB0B5B000D8C843 /* Helpers */,
