@@ -42,11 +42,10 @@ struct HomeView: View {
                                         .foregroundColor(colorScheme == .dark ? .white : .black)
                                         .font(.system(size: 15))
 
-                                    Text(String(repeating: "•", count: account.username?.count ?? 0))
-                                        .foregroundColor(.gray).opacity(0.6)
-
-                                    Text(String(repeating: "•", count: account.password?.count ?? 0))
-                                        .foregroundColor(.gray).opacity(0.6)
+                                    Text("••••••••••••••")
+                                        .foregroundColor(.gray)
+                                        .opacity(0.6)
+                                        .font(.system(.caption, design: .monospaced))
 
                                     if let date = account.date {
                                         Text(calcTimeSince(date: date))
@@ -72,10 +71,8 @@ struct HomeView: View {
 
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack {
-                        Image("padlock")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
+                        Text("🔐")
+                            .font(.system(size: 26))
 
                         Text("Accounts")
                             .foregroundColor(.blue)

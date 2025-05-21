@@ -13,31 +13,100 @@ struct AccountView: View {
     @State private var decryptedUsername: String = ""
     @State private var decryptedPassword: String = ""
 
+    // Toast State
+    @State private var showCopiedToast = false
+    @State private var copiedLabelText = ""
+
+    // Shared styling
+    let bulletMask = "•••••••••••••••••••••"
+    let sharedFont = Font.system(size: 14, design: .monospaced)
+
     var body: some View {
         VStack {
+            Spacer()
+
             VStack(spacing: 20) {
-                HStack {
-                    Image("yellowcard")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
-                    Text(revealCredentials ? decryptedUsername : getCensoredText())
-                        .italic()
-                        .animation(.easeInOut(duration: 0.3), value: revealCredentials)
-                        .foregroundColor(.gray).opacity(0.6)
+                // 🪪 Username Row
+                HStack(spacing: 10) {
+                    Text("🪪")
+                        .frame(width: 30, alignment: .leading)
+
+                    ZStack(alignment: .leading) {
+                        Text(bulletMask)
+                            .font(sharedFont)
+                            .italic()
+                            .foregroundColor(.gray)
+                            .opacity(revealCredentials ? 0 : 0.6)
+
+                        Text(decryptedUsername)
+                            .font(sharedFont)
+                            .italic()
+                            .foregroundColor(.gray)
+                            .opacity(revealCredentials ? 0.6 : 0)
+                    }
+                    .frame(minWidth: 200, alignment: .leading)
+
+                    if revealCredentials {
+                        Button {
+                            UIPasteboard.general.string = decryptedUsername
+                            copiedLabelText = "Username copied!"
+                            withAnimation {
+                                showCopiedToast = true
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation {
+                                    showCopiedToast = false
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "doc.on.doc")
+                                .foregroundColor(.blue)
+                        }
+                        .buttonStyle(.plain)
+                    }
                 }
 
-                HStack {
-                    Image("yellowkey")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
-                    Text(revealCredentials ? decryptedPassword : getCensoredText())
-                        .italic()
-                        .animation(.easeInOut(duration: 0.3), value: revealCredentials)
-                        .foregroundColor(.gray).opacity(0.6)
+                // 🔑 Password Row
+                HStack(spacing: 10) {
+                    Text("🔑")
+                        .frame(width: 30, alignment: .leading)
+
+                    ZStack(alignment: .leading) {
+                        Text(bulletMask)
+                            .font(sharedFont)
+                            .italic()
+                            .foregroundColor(.gray)
+                            .opacity(revealCredentials ? 0 : 0.6)
+
+                        Text(decryptedPassword)
+                            .font(sharedFont)
+                            .italic()
+                            .foregroundColor(.gray)
+                            .opacity(revealCredentials ? 0.6 : 0)
+                    }
+                    .frame(minWidth: 200, alignment: .leading)
+
+                    if revealCredentials {
+                        Button {
+                            UIPasteboard.general.string = decryptedPassword
+                            copiedLabelText = "Password copied!"
+                            withAnimation {
+                                showCopiedToast = true
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation {
+                                    showCopiedToast = false
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "doc.on.doc")
+                                .foregroundColor(.blue)
+                        }
+                        .buttonStyle(.plain)
+                    }
                 }
 
+                // 🔓 Decrypt Button
                 if !revealCredentials {
                     Button("Decrypt") {
                         authenticateWithSystem { success in
@@ -55,10 +124,13 @@ struct AccountView: View {
                     .background(colorScheme == .dark ? Color.white : Color.black)
                     .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                     .cornerRadius(8)
+                    .padding(.top)
                 }
             }
-            .padding(.top, 30)
+
+            Spacer()
         }
+        .padding(.horizontal)
         .navigationBarTitle(account.name ?? "", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: BackButton {
@@ -78,9 +150,27 @@ struct AccountView: View {
         .sheet(isPresented: $showingEditView) {
             EditAccountView(account: account)
         }
+
+        // 🔔 Copied Toast at Bottom
+        .overlay(
+            VStack {
+                Spacer()
+                if showCopiedToast {
+                    Text(copiedLabelText)
+                        .font(.caption)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(Color.green)
+                        .clipShape(Capsule())
+                        .transition(.opacity)
+                        .padding(.bottom, 30)
+                }
+            }
+        )
     }
 
-    // ✅ Biometric then passcode auth
+    // Biometric or passcode auth
     func authenticateWithSystem(completion: @escaping (Bool) -> Void) {
         let context = LAContext()
         var error: NSError?
@@ -99,10 +189,6 @@ struct AccountView: View {
                 completion(false)
             }
         }
-    }
-
-    func getCensoredText() -> String {
-        return "********************"
     }
 }
 

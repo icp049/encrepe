@@ -30,7 +30,7 @@ struct PassphrasePromptView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 10)
             } else {
-                Text("Enter Your Passphrase")
+                Text("🔐 Enter Your Passphrase")
                     .font(.title3)
                     .bold()
             }
