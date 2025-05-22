@@ -16,6 +16,8 @@
 		A6469D412DDDA7B900E0CBC7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A6469D402DDDA7AA00E0CBC7 /* README.md */; };
 		A6469D492DDDBCA200E0CBC7 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D482DDDBC9F00E0CBC7 /* LockView.swift */; };
 		A6469D4B2DDEF77600E0CBC7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D4A2DDEF76900E0CBC7 /* View+Extensions.swift */; };
+		A6469D4E2DDEF91100E0CBC7 /* UnlockTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D4D2DDEF90200E0CBC7 /* UnlockTransitionView.swift */; };
+		A6469D502DDEF92C00E0CBC7 /* LockUnlockAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D4F2DDEF92300E0CBC7 /* LockUnlockAnimationView.swift */; };
 		A69B3FB62DB0B4C300D8C843 /* encrepeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */; };
 		A69B3FBA2DB0B4C400D8C843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */; };
 		A69B3FBD2DB0B4C400D8C843 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		A6469D402DDDA7AA00E0CBC7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A6469D482DDDBC9F00E0CBC7 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		A6469D4A2DDEF76900E0CBC7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		A6469D4D2DDEF90200E0CBC7 /* UnlockTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockTransitionView.swift; sourceTree = "<group>"; };
+		A6469D4F2DDEF92300E0CBC7 /* LockUnlockAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockUnlockAnimationView.swift; sourceTree = "<group>"; };
 		A69B3FB22DB0B4C300D8C843 /* encrepe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encrepe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encrepeApp.swift; sourceTree = "<group>"; };
 		A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6469D4C2DDEF8EC00E0CBC7 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				A6469D4F2DDEF92300E0CBC7 /* LockUnlockAnimationView.swift */,
+				A6469D4D2DDEF90200E0CBC7 /* UnlockTransitionView.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		A69B3FA92DB0B4C300D8C843 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,7 @@
 		A69B3FB42DB0B4C300D8C843 /* encrepe */ = {
 			isa = PBXGroup;
 			children = (
+				A6469D4C2DDEF8EC00E0CBC7 /* Transitions */,
 				A6469D312DDC5B3A00E0CBC7 /* Info.plist */,
 				A69B3FD72DB0B5E900D8C843 /* Components */,
 				A69B3FD22DB0B5B000D8C843 /* Helpers */,
@@ -231,8 +245,10 @@
 				A69B3FD92DB0B5FA00D8C843 /* BackButton.swift in Sources */,
 				A69B3FCD2DB0B57C00D8C843 /* HomeView.swift in Sources */,
 				A6469D392DDC616200E0CBC7 /* PassphrasePromptView.swift in Sources */,
+				A6469D502DDEF92C00E0CBC7 /* LockUnlockAnimationView.swift in Sources */,
 				A6469D492DDDBCA200E0CBC7 /* LockView.swift in Sources */,
 				A6469D3D2DDC6A2A00E0CBC7 /* Account.swift in Sources */,
+				A6469D4E2DDEF91100E0CBC7 /* UnlockTransitionView.swift in Sources */,
 				A6469D3B2DDC61A200E0CBC7 /* EncryptionHelper.swift in Sources */,
 				A6469D352DDC60DA00E0CBC7 /* KeyDerivation.swift in Sources */,
 				A69B3FDB2DB0B61900D8C843 /* RUButton.swift in Sources */,

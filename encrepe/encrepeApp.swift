@@ -13,9 +13,11 @@ struct encrepeApp: App {
                 if passphraseManager.showingPrompt {
                     PassphrasePromptView(manager: passphraseManager)
                 } else {
-                    HomeView()
-                        .environment(\.managedObjectContext, dataController.container.viewContext)
-                        .environmentObject(passphraseManager)
+                    UnlockTransitionView {
+                            HomeView()
+                                .environment(\.managedObjectContext, dataController.container.viewContext)
+                                .environmentObject(passphraseManager)
+                        }
                 }
 
                 if passphraseManager.isAppLocked {

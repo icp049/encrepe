@@ -25,7 +25,7 @@ struct PassphrasePromptView: View {
 
     var body: some View {
         ZStack {
-            // Background to detect taps outside input
+            // Dismiss keyboard on background tap
             Color.clear
                 .contentShape(Rectangle())
                 .onTapGesture {
@@ -83,23 +83,16 @@ struct PassphrasePromptView: View {
                 .disabled(isFirstTime && !passphrasesMatch)
                 .opacity(isFirstTime && !passphrasesMatch ? 0.4 : 1)
                 .padding(.top)
-
-                // Hidden TextField to preload keyboard without glitch
-                TextField("", text: .constant(""))
-                    .opacity(0)
-                    .frame(width: 1, height: 1)
-                    .disabled(true)
-                    .onAppear {
-                        if !keyboardPrimed {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                // Preload by triggering keyboard system silently
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                keyboardPrimed = true
-                            }
-                        }
-                    }
             }
             .padding()
+            .onAppear {
+                if !keyboardPrimed {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        focusedField = .passphrase // 🔑 Focus input + show keyboard
+                        keyboardPrimed = true
+                    }
+                }
+            }
         }
     }
 }
