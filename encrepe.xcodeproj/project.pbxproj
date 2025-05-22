@@ -14,6 +14,8 @@
 		A6469D3D2DDC6A2A00E0CBC7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3C2DDC6A2600E0CBC7 /* Account.swift */; };
 		A6469D3F2DDC6A4000E0CBC7 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */; };
 		A6469D412DDDA7B900E0CBC7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A6469D402DDDA7AA00E0CBC7 /* README.md */; };
+		A6469D492DDDBCA200E0CBC7 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D482DDDBC9F00E0CBC7 /* LockView.swift */; };
+		A6469D4B2DDEF77600E0CBC7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6469D4A2DDEF76900E0CBC7 /* View+Extensions.swift */; };
 		A69B3FB62DB0B4C300D8C843 /* encrepeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */; };
 		A69B3FBA2DB0B4C400D8C843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */; };
 		A69B3FBD2DB0B4C400D8C843 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69B3FBC2DB0B4C400D8C843 /* Preview Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		A6469D3C2DDC6A2600E0CBC7 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A6469D3E2DDC6A3400E0CBC7 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A6469D402DDDA7AA00E0CBC7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6469D482DDDBC9F00E0CBC7 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
+		A6469D4A2DDEF76900E0CBC7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		A69B3FB22DB0B4C300D8C843 /* encrepe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encrepe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69B3FB52DB0B4C300D8C843 /* encrepeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = encrepeApp.swift; sourceTree = "<group>"; };
 		A69B3FB92DB0B4C400D8C843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		A69B3FC92DB0B55700D8C843 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6469D482DDDBC9F00E0CBC7 /* LockView.swift */,
 				A6469D382DDC615400E0CBC7 /* PassphrasePromptView.swift */,
 				A69B3FCA2DB0B56500D8C843 /* AddAccountView.swift */,
 				A69B3FCC2DB0B57C00D8C843 /* HomeView.swift */,
@@ -131,6 +136,7 @@
 		A69B3FD22DB0B5B000D8C843 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A6469D4A2DDEF76900E0CBC7 /* View+Extensions.swift */,
 				A6469D3A2DDC619C00E0CBC7 /* EncryptionHelper.swift */,
 				A6469D362DDC613900E0CBC7 /* PassphraseManager.swift */,
 				A6469D342DDC60D100E0CBC7 /* KeyDerivation.swift */,
@@ -225,11 +231,13 @@
 				A69B3FD92DB0B5FA00D8C843 /* BackButton.swift in Sources */,
 				A69B3FCD2DB0B57C00D8C843 /* HomeView.swift in Sources */,
 				A6469D392DDC616200E0CBC7 /* PassphrasePromptView.swift in Sources */,
+				A6469D492DDDBCA200E0CBC7 /* LockView.swift in Sources */,
 				A6469D3D2DDC6A2A00E0CBC7 /* Account.swift in Sources */,
 				A6469D3B2DDC61A200E0CBC7 /* EncryptionHelper.swift in Sources */,
 				A6469D352DDC60DA00E0CBC7 /* KeyDerivation.swift in Sources */,
 				A69B3FDB2DB0B61900D8C843 /* RUButton.swift in Sources */,
 				A69B3FCB2DB0B56500D8C843 /* AddAccountView.swift in Sources */,
+				A6469D4B2DDEF77600E0CBC7 /* View+Extensions.swift in Sources */,
 				A6469D3F2DDC6A4000E0CBC7 /* Account+CoreDataProperties.swift in Sources */,
 				A69B3FD12DB0B5A500D8C843 /* AccountView.swift in Sources */,
 				A69B3FD62DB0B5DA00D8C843 /* AccountViewController.swift in Sources */,

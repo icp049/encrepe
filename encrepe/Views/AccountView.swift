@@ -1,3 +1,4 @@
+// AccountView.swift
 import SwiftUI
 import LocalAuthentication
 
@@ -13,11 +14,9 @@ struct AccountView: View {
     @State private var decryptedUsername: String = ""
     @State private var decryptedPassword: String = ""
 
-    // Toast State
     @State private var showCopiedToast = false
     @State private var copiedLabelText = ""
 
-    // Shared styling
     let bulletMask = "•••••••••••••••••••••"
     let sharedFont = Font.system(size: 14, design: .monospaced)
 
@@ -26,91 +25,18 @@ struct AccountView: View {
             Spacer()
 
             VStack(spacing: 20) {
-                // 🪪 Username Row
-                HStack(spacing: 10) {
-                    Text("🪪")
-                        .frame(width: 30, alignment: .leading)
-
-                    ZStack(alignment: .leading) {
-                        Text(bulletMask)
-                            .font(sharedFont)
-                            .italic()
-                            .foregroundColor(.gray)
-                            .opacity(revealCredentials ? 0 : 0.6)
-
-                        Text(decryptedUsername)
-                            .font(sharedFont)
-                            .italic()
-                            .foregroundColor(.gray)
-                            .opacity(revealCredentials ? 0.6 : 0)
-                    }
-                    .frame(minWidth: 200, alignment: .leading)
-
-                    if revealCredentials {
-                        Button {
-                            UIPasteboard.general.string = decryptedUsername
-                            copiedLabelText = "Username copied!"
-                            withAnimation {
-                                showCopiedToast = true
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                withAnimation {
-                                    showCopiedToast = false
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "doc.on.doc")
-                                .foregroundColor(.blue)
-                        }
-                        .buttonStyle(.plain)
-                    }
+                credentialRow(icon: "🪪", value: decryptedUsername, masked: !revealCredentials) {
+                    copyToClipboard(decryptedUsername, "Username copied!")
                 }
 
-                // 🔑 Password Row
-                HStack(spacing: 10) {
-                    Text("🔑")
-                        .frame(width: 30, alignment: .leading)
-
-                    ZStack(alignment: .leading) {
-                        Text(bulletMask)
-                            .font(sharedFont)
-                            .italic()
-                            .foregroundColor(.gray)
-                            .opacity(revealCredentials ? 0 : 0.6)
-
-                        Text(decryptedPassword)
-                            .font(sharedFont)
-                            .italic()
-                            .foregroundColor(.gray)
-                            .opacity(revealCredentials ? 0.6 : 0)
-                    }
-                    .frame(minWidth: 200, alignment: .leading)
-
-                    if revealCredentials {
-                        Button {
-                            UIPasteboard.general.string = decryptedPassword
-                            copiedLabelText = "Password copied!"
-                            withAnimation {
-                                showCopiedToast = true
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                withAnimation {
-                                    showCopiedToast = false
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "doc.on.doc")
-                                .foregroundColor(.blue)
-                        }
-                        .buttonStyle(.plain)
-                    }
+                credentialRow(icon: "🔑", value: decryptedPassword, masked: !revealCredentials) {
+                    copyToClipboard(decryptedPassword, "Password copied!")
                 }
 
-                // 🔓 Decrypt Button
                 if !revealCredentials {
                     Button("Decrypt") {
                         authenticateWithSystem { success in
-                            if success, let key = passphraseManager.encryptionKey {
+                            if success, !passphraseManager.isAppLocked, let key = passphraseManager.encryptionKey {
                                 decryptedUsername = EncryptionHelper.decrypt(account.username ?? Data(), using: key) ?? "Decryption error"
                                 decryptedPassword = EncryptionHelper.decrypt(account.password ?? Data(), using: key) ?? "Decryption error"
                                 withAnimation {
@@ -125,6 +51,8 @@ struct AccountView: View {
                     .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                     .cornerRadius(8)
                     .padding(.top)
+                    .disabled(passphraseManager.isAppLocked)
+                    .opacity(passphraseManager.isAppLocked ? 0.4 : 1)
                 }
             }
 
@@ -140,7 +68,7 @@ struct AccountView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Edit") {
                     authenticateWithSystem { success in
-                        if success {
+                        if success && !passphraseManager.isAppLocked {
                             showingEditView.toggle()
                         }
                     }
@@ -150,8 +78,6 @@ struct AccountView: View {
         .sheet(isPresented: $showingEditView) {
             EditAccountView(account: account)
         }
-
-        // 🔔 Copied Toast at Bottom
         .overlay(
             VStack {
                 Spacer()
@@ -168,24 +94,76 @@ struct AccountView: View {
                 }
             }
         )
+        .onChange(of: passphraseManager.isAppLocked) { locked in
+            if locked {
+                revealCredentials = false
+                decryptedUsername = ""
+                decryptedPassword = ""
+            }
+        }
     }
 
-    // Biometric or passcode auth
-    func authenticateWithSystem(completion: @escaping (Bool) -> Void) {
+    private func credentialRow(icon: String, value: String, masked: Bool, copyAction: @escaping () -> Void) -> some View {
+        HStack(spacing: 10) {
+            Text(icon)
+                .frame(width: 30, alignment: .leading)
+
+            ZStack(alignment: .leading) {
+                Text(bulletMask)
+                    .font(sharedFont)
+                    .italic()
+                    .foregroundColor(.gray)
+                    .opacity(masked ? 0.6 : 0)
+
+                Text(value)
+                    .font(sharedFont)
+                    .italic()
+                    .foregroundColor(.gray)
+                    .opacity(masked ? 0 : 0.6)
+            }
+            .frame(minWidth: 200, alignment: .leading)
+
+            if !masked {
+                Button(action: copyAction) {
+                    Image(systemName: "doc.on.doc")
+                        .foregroundColor(.blue)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+
+    private func copyToClipboard(_ text: String, _ label: String) {
+        UIPasteboard.general.string = text
+        copiedLabelText = label
+        withAnimation {
+            showCopiedToast = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            withAnimation {
+                showCopiedToast = false
+            }
+        }
+    }
+
+    private func authenticateWithSystem(completion: @escaping (Bool) -> Void) {
         let context = LAContext()
         var error: NSError?
 
+        passphraseManager.isAuthenticating = true
         context.localizedFallbackTitle = "Use Passcode"
 
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             context.evaluatePolicy(.deviceOwnerAuthentication,
                                    localizedReason: "Authenticate to reveal credentials") { success, _ in
                 DispatchQueue.main.async {
+                    passphraseManager.isAuthenticating = false
                     completion(success)
                 }
             }
         } else {
             DispatchQueue.main.async {
+                passphraseManager.isAuthenticating = false
                 completion(false)
             }
         }

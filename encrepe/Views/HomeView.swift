@@ -59,7 +59,15 @@ struct HomeView: View {
                     .onDelete(perform: deleteAccount)
                 }
                 .listStyle(.plain)
-            }
+                .gesture(DragGesture().onChanged { _ in
+                                   hideKeyboard()
+                               })
+                           }
+                           .gesture(
+                               TapGesture().onEnded {
+                                   hideKeyboard()
+                               }
+                           )
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
