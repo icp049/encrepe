@@ -50,10 +50,16 @@ struct HomeView: View {
                                             .foregroundColor(colorScheme == .dark ? .white : .black)
                                             .font(.system(size: 15))
 
-                                        Text("••••••••••••••")
-                                            .foregroundColor(.gray)
-                                            .opacity(0.6)
-                                            .font(.system(.caption, design: .monospaced))
+                                        Text(maskedLine())
+                                                  .foregroundColor(.gray)
+                                                  .opacity(0.6)
+                                                  .font(.system(.caption, design: .monospaced))
+
+                                              Text(maskedLine())
+                                                  .foregroundColor(.gray)
+                                                  .opacity(0.6)
+                                                  .font(.system(.caption, design: .monospaced))
+
 
                                         if let date = account.date {
                                             Text(calcTimeSince(date: date))
@@ -112,6 +118,11 @@ struct HomeView: View {
                 .forEach(managedObjContext.delete)
             DataController().save(context: managedObjContext)
         }
+    }
+    
+    func maskedLine(min: Int = 6, max: Int = 16) -> String {
+        let count = Int.random(in: min...max)
+        return String(repeating: "•", count: count)
     }
 }
 
