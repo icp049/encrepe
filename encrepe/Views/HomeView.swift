@@ -14,51 +14,60 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                
-                // 🔍 Search Field UI
-                ZStack(alignment: .leading) {
-                    TextField("Search for your accounts...", text: $searchText)
-                        .foregroundColor(.primary)
-                        .padding(.leading, 35)
-                        .padding(.vertical, 10)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(15)
-                    
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                        .padding(.leading, 10)
-                }
-                .frame(height: 40)
-                .padding([.top, .horizontal])
+            ZStack {
+                // Background tap gesture to dismiss keyboard
+                Color.clear
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
 
-                List {
-                    ForEach(filteredAccounts, id: \.self) { account in
-                        NavigationLink(destination: AccountView(account: account)) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 6) {
-                                    Text(account.name ?? "Unnamed")
-                                        .bold()
-                                        .foregroundColor(colorScheme == .dark ? .white : .black)
-                                        .font(.system(size: 15))
+                VStack(alignment: .leading) {
 
-                                    Text("••••••••••••••")
-                                        .foregroundColor(.gray)
-                                        .opacity(0.6)
-                                        .font(.system(.caption, design: .monospaced))
+                    // 🔍 Search Field UI
+                    ZStack(alignment: .leading) {
+                        TextField("Search for your accounts...", text: $searchText)
+                            .foregroundColor(.primary)
+                            .padding(.leading, 35)
+                            .padding(.vertical, 10)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(15)
 
-                                    if let date = account.date {
-                                        Text(calcTimeSince(date: date))
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .padding(.leading, 10)
+                    }
+                    .frame(height: 40)
+                    .padding([.top, .horizontal])
+
+                    List {
+                        ForEach(filteredAccounts, id: \.self) { account in
+                            NavigationLink(destination: AccountView(account: account)) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        Text(account.name ?? "Unnamed")
+                                            .bold()
+                                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                                            .font(.system(size: 15))
+
+                                        Text("••••••••••••••")
                                             .foregroundColor(.gray)
-                                            .font(.system(size: 10))
+                                            .opacity(0.6)
+                                            .font(.system(.caption, design: .monospaced))
+
+                                        if let date = account.date {
+                                            Text(calcTimeSince(date: date))
+                                                .foregroundColor(.gray)
+                                                .font(.system(size: 10))
+                                        }
                                     }
                                 }
                             }
                         }
+                        .onDelete(perform: deleteAccount)
                     }
-                    .onDelete(perform: deleteAccount)
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -66,7 +75,6 @@ struct HomeView: View {
                         showingAddView.toggle()
                     } label: {
                         Label("Add Account", systemImage: "plus")
-                     
                     }
                 }
 
@@ -115,4 +123,4 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(PassphraseManager())
     }
 }
-
+ 
